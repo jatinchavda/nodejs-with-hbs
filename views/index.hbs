@@ -1,0 +1,36 @@
+<h1>This is <u>hbs</u> Example</h1>
+
+<p>Username {{ username }} </p>
+
+    <h3>Each Loop example</h3>
+    <table border="1px" cellpadding="10">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+        </tr>
+    
+    {{#each projects }}
+        <tr>
+            <td>{{ name }}</td>
+            <td>{{ email }}</td>
+        </tr>
+    {{/each}}
+    </table>
+
+    <h3>Alter each Loop example</h3>
+    <table border="1px" cellpadding="10">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+        </tr>
+
+    {{#each projects as |project|}}
+        {{#> childEntry}}
+            <tr>
+                <td>{{project.name}}</td>
+                <td>{{project.email}}</td>
+            </tr>
+        {{/childEntry}}
+    {{/each}}
+
+    </table>
